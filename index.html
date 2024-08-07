@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samet Köser - CV ve Portfolyo</title>
+    <style>
+        /* CSS Stilleri */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .skills-container, .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .skill-item, .project-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            flex-basis: calc(33.333% - 2rem);
+        }
+
+        .skill-item:hover, .project-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-item img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .project-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-item p {
+            margin-bottom: 1rem;
+        }
+
+        .project-item a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-item a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive tasarım için medya sorguları */
+        @media (max-width: 768px) {
+            .skill-item, .project-item {
+                flex-basis: calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill-item, .project-item {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Samet Köser</h1>
+            <p>Oyun Geliştirici | Bilgisayar Mühendisi</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">Hakkımda</a></li>
+            <li><a href="#skills">Beceriler</a></li>
+            <li><a href="#projects">Projeler</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>Hakkımda</h2>
+            <p>Bilgisayar mühendisliği eğitimi aldım ve üniversite hayatım boyunca hem hobi hem de iş olarak yazılımla ilgilendim. Uzmanlık alanım olarak oyun geliştirmeyi seçtim ve 3 yıldır oyun geliştirmeyle ilgileniyorum. Becerilerimi geliştirme ve öğrenme fırsatları sunan bir topluluğun parçası olmak istiyorum.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Beceriler</h2>
+            <div class="skills-container">
+                <div class="skill-item">Unity</div>
+                <div class="skill-item">.Net Core</div>
+                <div class="skill-item">TypeScript</div>
+                <div class="skill-item">C#</div>
+                <div class="skill-item">WordPress</div>
+                <div class="skill-item">Colyseus</div>
+                <div class="skill-item">Adobe Photoshop CC</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projeler</h2>
+            <div class="projects-container">
+                <div class="project-item">
+                    <img src="/api/placeholder/400/300" alt="101 Okey Max">
+                    <h3>101 Okey Max</h3>
+                    <p>101 Okey Max, 101 Okey ve Batak içeren çok oyunculu bir mobil oyundur. Video ve sesli sohbet özelliklerine sahip bir sosyal medya ağı içerir. Oyun 4 kişilik bir ekip tarafından geliştirildi.</p>
+                    <a href="#" target="_blank">Projeyi Gör</a>
+                </div>
+                <div class="project-item">
+                    <img src="/api/placeholder/400/300" alt="Polity">
+                    <h3>Polity</h3>
+                    <p>Polity, kullanıcı tarafından oluşturulan bir dünyada geçen, gündelik oyunlar ve işbirlikçi şehir inşası içeren sosyal bir RPG'dir. Oyun Steam, Google Play Store ve App Store'da yayınlandı.</p>
+                    <a href="#" target="_blank">Projeyi Gör</a>
+                </div>
+                <div class="project-item">
+                    <img src="/api/placeholder/400/300" alt="Strattle">
+                    <h3>Strattle</h3>
+                    <p>Strattle, harita savaşları temel mekaniğine sahip ve mini oyunlar içeren çevrimiçi bir oyundur. Oyun dört ana bileşenden oluşur: İstemci, Sunucu, API & Veritabanı ve AI Sunucusu.</p>
+                    <a href="#" target="_blank">Projeyi Gör</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>İletişim</h2>
+            <p>Tel: +90 539 260 9913</p>
+            <p>Email: sametkoser66@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/samet-köser-b64130188" target="_blank">/samet-köser-b64130188</a></p>
+            <p>GitHub: <a href="https://github.com/sametkkoserk" target="_blank">/sametkkoserk</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Samet Köser. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        // JavaScript kodları
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Animation for skill items
+            const skillItems = document.querySelectorAll('.skill-item');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            const animateItems = (items) => {
+                items.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            };
+
+            // Intersection Observer for skills and projects
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.id === 'skills') {
+                            animateItems(skillItems);
+                        } else if (entry.target.id === 'projects') {
+                            animateItems(projectItems);
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            observer.observe(document.getElementById('skills'));
+            observer.observe(document.getElementById('projects'));
+        });
+    </script>
+</body>
+</html>
