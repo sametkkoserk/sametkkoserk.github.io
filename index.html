@@ -41,6 +41,20 @@
             overflow: hidden;
         }
 
+        header .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+        }
+
+        header .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         header h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -136,6 +150,26 @@
             background-color: var(--secondary-color);
         }
 
+        .skill-bar {
+            background-color: var(--background-color);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .skill-bar div {
+            height: 20px;
+            background-color: var(--primary-color);
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         footer {
             background-color: var(--secondary-color);
             color: white;
@@ -183,6 +217,9 @@
 <body>
     <header>
         <div class="container">
+            <div class="profile-pic">
+                <img src="path/to/your/profile.jpg" alt="Samet Köser">
+            </div>
             <h1>Samet Köser</h1>
             <p>Oyun Geliştirici | Bilgisayar Mühendisi</p>
         </div>
@@ -206,13 +243,34 @@
         <section id="skills">
             <h2>Beceriler</h2>
             <div class="skills-container">
-                <div class="skill-item">Unity</div>
-                <div class="skill-item">.Net Core</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">C#</div>
-                <div class="skill-item">WordPress</div>
-                <div class="skill-item">Colyseus</div>
-                <div class="skill-item">Adobe Photoshop CC</div>
+                <div class="skill-item">
+                    <span>Unity</span>
+                    <div class="skill-bar"><div style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>.Net Core</span>
+                    <div class="skill-bar"><div style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>TypeScript</span>
+                    <div class="skill-bar"><div style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>C#</span>
+                    <div class="skill-bar"><div style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>WordPress</span>
+                    <div class="skill-bar"><div style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Colyseus</span>
+                    <div class="skill-bar"><div style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Adobe Photoshop CC</span>
+                    <div class="skill-bar"><div style="width: 60%;"></div></div>
+                </div>
             </div>
         </section>
 
