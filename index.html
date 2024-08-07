@@ -39,14 +39,28 @@
             padding: 2rem 0;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
-        header .profile-pic {
+        @media (min-width: 768px) {
+            header {
+                flex-direction: row;
+            }
+
+            header .profile-pic {
+                margin-right: 2rem;
+            }
+        }
+
+        .profile-pic {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 0 auto 1rem;
+            margin-bottom: 1rem;
         }
 
         header .profile-pic img {
@@ -155,6 +169,7 @@
             border-radius: 10px;
             overflow: hidden;
             margin: 0.5rem 0;
+            width: 100%;
         }
 
         .skill-bar div {
@@ -216,10 +231,10 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="profile-pic">
-                <img src="path/to/your/profile.jpg" alt="Samet Köser">
-            </div>
+        <div class="profile-pic">
+            <img src="path/to/your/profile.jpg" alt="Samet Köser">
+        </div>
+        <div>
             <h1>Samet Köser</h1>
             <p>Oyun Geliştirici | Bilgisayar Mühendisi</p>
         </div>
@@ -360,6 +375,11 @@
 
             observer.observe(document.getElementById('skills'));
             observer.observe(document.getElementById('projects'));
+
+            // Fill skill bars
+            document.querySelectorAll('.skill-bar div').forEach(bar => {
+                bar.style.width = bar.style.width;
+            });
         });
     </script>
 </body>
