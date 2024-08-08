@@ -1,460 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samet Köser - CV and Portfolio</title>
     <style>
-        /* CSS Styles */
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --text-color: #333;
-            --background-color: #f4f4f4;
-            --hover-shadow-color: rgba(0, 0, 0, 0.2);
-        }
+      /* CSS Styles */
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --text-color: #333;
+        --background-color: #f4f4f4;
+        --hover-shadow-color: rgba(0, 0, 0, 0.2);
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      @media (min-width: 768px) {
         header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+          flex-direction: row;
         }
 
-        @media (min-width: 768px) {
-            header {
-                flex-direction: row;
-            }
-
-            header .profile-pic {
-                margin-right: 2rem;
-            }
+        header .profile-pic {
+          margin-right: 2rem;
         }
+      }
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 1rem;
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+
+      header .profile-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: fadeInDown 1s ease-out;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        animation: fadeInUp 1s ease-out 0.5s both;
+      }
+
+      nav {
+        background-color: var(--secondary-color);
+        padding: 1rem 0;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 1rem;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--primary-color);
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--secondary-color);
+      }
+
+      .skills-container,
+      .projects-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .skill-item,
+      .project-item {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .skill-item {
+        flex-basis: calc(33.333% - 2rem);
+      }
+
+      .project-item {
+        flex-basis: 100%;
+      }
+
+      .skill-item:hover,
+      .project-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px var(--hover-shadow-color);
+      }
+
+      .project-item img {
+        max-width: 100%;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+
+      .project-item h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      .project-item p {
+        margin-bottom: 1rem;
+      }
+
+      .project-item a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .project-item a:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .skill-bar {
+        background-color: var(--background-color);
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 0.5rem 0;
+        width: 100%;
+      }
+
+      .skill-bar div {
+        height: 20px;
+        background-color: var(--primary-color);
+        width: 0;
+        transition: width 1s ease;
+      }
+
+      .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .technologies-used {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .technologies-used h4 {
+        margin-bottom: 0.5rem;
+        color: var(--secondary-color);
+      }
+
+      .technologies-used ul {
+        list-style-type: disc;
+        margin-left: 1.5rem;
+      }
+
+      footer {
+        background-color: var(--secondary-color);
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 2rem;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
         }
-
-        header .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInDown 1s ease-out;
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-
-        header p {
-            font-size: 1.2rem;
-            animation: fadeInUp 1s ease-out 0.5s both;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        nav {
-            background-color: var(--secondary-color);
-            padding: 1rem 0;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        section {
-            padding: 4rem 0;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--secondary-color);
-        }
-
-        .skills-container, .projects-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .skill-item, .project-item {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .skill-item {
-            flex-basis: calc(33.333% - 2rem);
+      /* Responsive design media queries */
+      @media (max-width: 768px) {
+        .skill-item,
+        .project-item {
+          flex-basis: calc(50% - 2rem);
         }
 
         .project-item {
-            flex-basis: 100%;
+          flex-basis: 100%;
         }
+      }
 
-        .skill-item:hover, .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px var(--hover-shadow-color);
+      @media (max-width: 480px) {
+        .skill-item,
+        .project-item {
+          flex-basis: 100%;
         }
-
-        .project-item img {
-            max-width: 100%;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .project-item h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .project-item p {
-            margin-bottom: 1rem;
-        }
-
-        .project-item a {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .project-item a:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .skill-bar {
-            background-color: var(--background-color);
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0.5rem 0;
-            width: 100%;
-        }
-
-        .skill-bar div {
-            height: 20px;
-            background-color: var(--primary-color);
-            width: 0;
-            transition: width 1s ease;
-        }
-
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .technologies-used {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .technologies-used h4 {
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-
-        .technologies-used ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-        }
-
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive design media queries */
-        @media (max-width: 768px) {
-            .skill-item, .project-item {
-                flex-basis: calc(50% - 2rem);
-            }
-
-            .project-item {
-                flex-basis: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .skill-item, .project-item {
-                flex-basis: 100%;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="profile-pic">
-            <img src="profile_photo.png" alt="Samet Köser">
-        </div>
-        <div>
-            <h1>Samet Köser</h1>
-            <p>Game Developer | Computer Engineer</p>
-        </div>
+      <div class="profile-pic">
+        <img src="profile_photo.png" alt="Samet Köser" />
+      </div>
+      <div>
+        <h1>Samet Köser</h1>
+        <p>Game Developer | Computer Engineer</p>
+      </div>
     </header>
 
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
     <main class="container">
-        <section id="about">
-            <h2>About</h2>
-            <p>I studied computer engineering and during my university years, I was involved in software both as a hobby and as a job. I chose game development as my specialty and have been involved in game development for 4 years. I want to be part of a community that offers opportunities to improve and learn my skills.</p>
-        </section>
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I studied computer engineering and during my university years, I was
+          involved in software both as a hobby and as a job. I chose game
+          development as my specialty and have been involved in game development
+          for 4 years. I want to be part of a community that offers
+          opportunities to improve and learn my skills.
+        </p>
+      </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill-item">
-                    <span>Unity</span>
-                    <div class="skill-bar"><div style="width: 80%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span>.Net Core</span>
-                    <div class="skill-bar"><div style="width: 60%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span>TypeScript</span>
-                    <div class="skill-bar"><div style="width: 50%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span>C#</span>
-                    <div class="skill-bar"><div style="width: 75%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span>WordPress</span>
-                    <div class="skill-bar"><div style="width: 40%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span>Colyseus</span>
-                    <div class="skill-bar"><div style="width: 50%;"></div></div>
-                </div>
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+          <div class="skill-item">
+            <span>Unity</span>
+            <div class="skill-bar"><div style="width: 80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>.Net Core</span>
+            <div class="skill-bar"><div style="width: 60%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>TypeScript</span>
+            <div class="skill-bar"><div style="width: 50%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>C#</span>
+            <div class="skill-bar"><div style="width: 75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>WordPress</span>
+            <div class="skill-bar"><div style="width: 40%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>Colyseus</span>
+            <div class="skill-bar"><div style="width: 50%"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-container">
+          <div class="project-item">
+            <img src="Okey.jpg" alt="101 Okey Max" />
+            <img src="Batak.jpg" alt="101 Okey Max" />
+            <img src="Party.jpg" alt="101 Okey Max" />
+            <img src="Party2.jpg" alt="101 Okey Max" />
+            <img src="Party3.jpg" alt="101 Okey Max" />
+            <h3>101 Okey Max</h3>
+            <p>
+              I developed this mobile game as part of a four-person team. This
+              game offers a multiplayer platform where players can play 101 Okey
+              and Batak online. Additionally, the game includes a social media
+              network where players can broadcast video and audio. The game also
+              features a leaderboard, a store, and various missions. In this
+              project, I actively participated in all stages of the game
+              development process and contributed to my team with technical and
+              creative solutions.
+            </p>
+            <div class="technologies-used">
+              <h4>Technologies Used:</h4>
+              <ul>
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Agora.io</li>
+                <li>Vivox</li>
+                <li>TypeScript</li>
+                <li>JavaScript</li>
+                <li>Colyseus</li>
+                <li>PostgreSql</li>
+                <li>NestJs</li>
+                <li>Digital Ocean</li>
+              </ul>
             </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-container">
-                <div class="project-item">
-                    <img src="Oyun Ekranı 2.jpg" alt="101 Okey Max">
-                    <img src="1.jpg" alt="101 Okey Max">
-                    <img src="07.jpg" alt="101 Okey Max">
-                    <h3>101 Okey Max</h3>
-                    <p>I developed this mobile game as part of a four-person team. This game offers a multiplayer platform where players can play 101 Okey and Batak online. Additionally, the game includes a social media network where players can broadcast video and audio. The game also features a leaderboard, a store, and various missions. In this project, I actively participated in all stages of the game development process and contributed to my team with technical and creative solutions.</p>
-                    <div class="technologies-used">
-                        <h4>Technologies Used:</h4>
-                        <ul>
-                            <li>Unity</li>
-                            <li>C#</li>
-                            <li>Agora.io</li>
-                            <li>Vivox</li>
-                            <li>TypeScript</li>
-                            <li>JavaScript</li>
-                            <li>Colyseus</li>
-                            <li>PostgreSql</li>
-                            <li>NestJs</li>
-                            <li>Digital Ocean</li>
-                        </ul>
-                    </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.dkpeak.okeymax&hl=tr&gl=US" target="_blank">Google Play Store</a>
-                    <a href="https://apps.apple.com/kg/app/101-okey-max/id6459021450" target="_blank">App Store</a>
-                </div>
-                <div class="project-item">
-                    <img src="Polity1.webp" alt="Polity">
-                    <img src="Polity2.webp" alt="Polity">
-                    <img src="Polity3.webp" alt="Polity">
-                    <img src="Polity4.webp" alt="Polity">
-                    <h3>Polity</h3>
-                    <p>I was involved in the development of this game. This game is a multiplayer RPG that includes farming game elements. Players can collectively create their own countries, design their lands as they wish, and enjoy various mini-games. In this project, I primarily worked on the frontend, contributing with innovative solutions.</p>
-                    <div class="technologies-used">
-                        <h4>Technologies Used:</h4>
-                        <ul>
-                            <li>Unity</li>
-                            <li>C#</li>
-                            <li>JavaScript</li>
-                            <li>Java</li>
-                            <li>StrangeIoc</li>
-                        </ul>
-                    </div>
-                    <a href="https://polityonline.com/#values" target="_blank">Web Site</a>
-                    <a href="https://store.steampowered.com/app/1479480/Polity__Online_Role_Playing/" target="_blank">Steam</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.jib.polity" target="_blank">Google Play Store</a>
-                    <a href="https://apps.apple.com/us/app/polity-online-role-playing/id1623977845?l=en" target="_blank">App Store</a>
-                </div>
-                <div class="project-item">
-                    <img src="Strattle1.png" alt="Strattle">
-                    <img src="Strattle2.png" alt="Strattle">
-                    <h3>Strattle</h3>
-                    <p>I developed a this game with a teammate. This game is a multiplayer map battle game where players compete to dominate the map by fighting against other players. Additionally, we included mini-games like car racing to add more excitement and fun. Although the game was canceled before reaching the visual design stage and might not look visually appealing, it is fully functional from a technical perspective. I primarily developed the backend of this game and also played an active role in the frontend.</p>
-                    <div class="technologies-used">
-                        <h4>Technologies Used:</h4>
-                        <ul>
-                            <li>Unity</li>
-                            <li>C#</li>
-                            <li>Riptide Networking</li>
-                            <li>.Net Core</li>
-                            <li>Swagger</li>
-                            <li>MongoDb</li>
-                            <li>Digital Ocean</li>
-                        </ul>
-                    </div>
-                </div>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.dkpeak.okeymax&hl=tr&gl=US"
+              target="_blank"
+              >Google Play Store</a
+            >
+            <a
+              href="https://apps.apple.com/kg/app/101-okey-max/id6459021450"
+              target="_blank"
+              >App Store</a
+            >
+          </div>
+          <div class="project-item">
+            <img src="Polity1.webp" alt="Polity" />
+            <img src="Polity2.webp" alt="Polity" />
+            <img src="Polity3.webp" alt="Polity" />
+            <img src="Polity4.webp" alt="Polity" />
+            <h3>Polity</h3>
+            <p>
+              I was involved in the development of this game. This game is a
+              multiplayer RPG that includes farming game elements. Players can
+              collectively create their own countries, design their lands as
+              they wish, and enjoy various mini-games. In this project, I
+              primarily worked on the frontend, contributing with innovative
+              solutions.
+            </p>
+            <div class="technologies-used">
+              <h4>Technologies Used:</h4>
+              <ul>
+                <li>Unity</li>
+                <li>C#</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>StrangeIoc</li>
+              </ul>
             </div>
-        </section>
+            <a href="https://polityonline.com/#values" target="_blank"
+              >Web Site</a
+            >
+            <a
+              href="https://store.steampowered.com/app/1479480/Polity__Online_Role_Playing/"
+              target="_blank"
+              >Steam</a
+            >
+            <a
+              href="https://play.google.com/store/apps/details?id=com.jib.polity"
+              target="_blank"
+              >Google Play Store</a
+            >
+            <a
+              href="https://apps.apple.com/us/app/polity-online-role-playing/id1623977845?l=en"
+              target="_blank"
+              >App Store</a
+            >
+          </div>
+          <div class="project-item">
+            <img src="Strattle1.png" alt="Strattle" />
+            <img src="Strattle2.png" alt="Strattle" />
+            <h3>Strattle</h3>
+            <p>
+              I developed a this game with a teammate. This game is a
+              multiplayer map battle game where players compete to dominate the
+              map by fighting against other players. Additionally, we included
+              mini-games like car racing to add more excitement and fun.
+              Although the game was canceled before reaching the visual design
+              stage and might not look visually appealing, it is fully
+              functional from a technical perspective. I primarily developed the
+              backend of this game and also played an active role in the
+              frontend.
+            </p>
+            <div class="technologies-used">
+              <h4>Technologies Used:</h4>
+              <ul>
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Riptide Networking</li>
+                <li>.Net Core</li>
+                <li>Swagger</li>
+                <li>MongoDb</li>
+                <li>Digital Ocean</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Phone: +90 539 260 9913</p>
-            <p>Email: sametkoser66@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/samet-köser-b64130188" target="_blank">/samet-köser-b64130188</a></p>
-            <p>GitHub: <a href="https://github.com/sametkkoserk" target="_blank">/sametkkoserk</a></p>
-        </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Phone: +90 539 260 9913</p>
+        <p>Email: sametkoser66@gmail.com</p>
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/samet-köser-b64130188"
+            target="_blank"
+            >/samet-köser-b64130188</a
+          >
+        </p>
+        <p>
+          GitHub:
+          <a href="https://github.com/sametkkoserk" target="_blank"
+            >/sametkkoserk</a
+          >
+        </p>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Samet Köser. All rights reserved.</p>
+      <p>&copy; 2024 Samet Köser. All rights reserved.</p>
     </footer>
 
     <script>
-        // JavaScript codes
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
+      // JavaScript codes
+      document.addEventListener("DOMContentLoaded", (event) => {
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
             });
-
-            // Animation for skill items
-            const skillItems = document.querySelectorAll('.skill-item');
-            const projectItems = document.querySelectorAll('.project-item');
-
-            const animateItems = (items) => {
-                items.forEach((item, index) => {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-            };
-
-            // Intersection Observer for skills and projects
-            const observerOptions = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (entry.target.id === 'skills') {
-                            animateItems(skillItems);
-                        } else if (entry.target.id === 'projects') {
-                            animateItems(projectItems);
-                        }
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            observer.observe(document.getElementById('skills'));
-            observer.observe(document.getElementById('projects'));
-
-            // Fill skill bars
-            document.querySelectorAll('.skill-bar div').forEach(bar => {
-                bar.style.width = bar.style.width;
-            });
+          });
         });
+
+        // Animation for skill items
+        const skillItems = document.querySelectorAll(".skill-item");
+        const projectItems = document.querySelectorAll(".project-item");
+
+        const animateItems = (items) => {
+          items.forEach((item, index) => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(20px)";
+            setTimeout(() => {
+              item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+              item.style.opacity = "1";
+              item.style.transform = "translateY(0)";
+            }, index * 100);
+          });
+        };
+
+        // Intersection Observer for skills and projects
+        const observerOptions = {
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (entry.target.id === "skills") {
+                animateItems(skillItems);
+              } else if (entry.target.id === "projects") {
+                animateItems(projectItems);
+              }
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        observer.observe(document.getElementById("skills"));
+        observer.observe(document.getElementById("projects"));
+
+        // Fill skill bars
+        document.querySelectorAll(".skill-bar div").forEach((bar) => {
+          bar.style.width = bar.style.width;
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
