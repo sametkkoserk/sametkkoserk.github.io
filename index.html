@@ -129,7 +129,8 @@
       }
 
       .skill-item,
-      .project-item {
+      .project-item,
+      .experience-item {
         background-color: white;
         border-radius: 8px;
         padding: 1.5rem;
@@ -142,31 +143,37 @@
         flex-basis: calc(33.333% - 2rem);
       }
 
-      .project-item {
+      .project-item,
+      .experience-item {
         flex-basis: 100%;
       }
 
       .skill-item:hover,
-      .project-item:hover {
+      .project-item:hover,
+      .experience-item:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 16px var(--hover-shadow-color);
       }
 
-      .project-item img {
+      .project-item img,
+      .experience-item img {
         max-width: 100%;
         border-radius: 4px;
         margin-bottom: 1rem;
       }
 
-      .project-item h3 {
+      .project-item h3,
+      .experience-item h3 {
         margin-bottom: 0.5rem;
       }
 
-      .project-item p {
+      .project-item p,
+      .experience-item p {
         margin-bottom: 1rem;
       }
 
-      .project-item a {
+      .project-item a,
+      .experience-item a {
         display: inline-block;
         background-color: var(--primary-color);
         color: white;
@@ -176,7 +183,8 @@
         transition: background-color 0.3s ease;
       }
 
-      .project-item a:hover {
+      .project-item a:hover,
+      .experience-item a:hover {
         background-color: var(--secondary-color);
       }
 
@@ -249,18 +257,21 @@
       /* Responsive design media queries */
       @media (max-width: 768px) {
         .skill-item,
-        .project-item {
+        .project-item,
+        .experience-item {
           flex-basis: calc(50% - 2rem);
         }
 
-        .project-item {
+        .project-item,
+        .experience-item {
           flex-basis: 100%;
         }
       }
 
       @media (max-width: 480px) {
         .skill-item,
-        .project-item {
+        .project-item,
+        .experience-item {
           flex-basis: 100%;
         }
       }
@@ -282,6 +293,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -448,6 +460,56 @@
         </div>
       </section>
 
+      <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience-item">
+          <h3>Game Developer</h3>
+          <p><strong>Company:</strong> DkPeak</p>
+          <p>
+            <strong>Duration:</strong> April 2023 - Present (1 year, 4 months)
+          </p>
+          <p>
+            Developed "101 Okey Max" game for mobile app markets, worked on
+            online game development in Unity, and improved teamwork skills.
+          </p>
+        </div>
+        <div class="experience-item">
+          <h3>Junior Game Developer</h3>
+          <p><strong>Company:</strong> Jib Games</p>
+          <p><strong>Duration:</strong> July 2022 - January 2023 (7 months)</p>
+          <p>
+            Worked on online game development in Unity, improved UI development
+            skills, and developed "Polity" game for Steam and mobile app
+            markets.
+          </p>
+        </div>
+        <div class="experience-item">
+          <h3>Game Developer Intern</h3>
+          <p><strong>Company:</strong> Jib Games</p>
+          <p><strong>Duration:</strong> April 2022 - July 2022 (4 months)</p>
+          <p>
+            I learned the MVC structure and developed myself in the Unity game
+            engine. I also improved my teamwork.
+          </p>
+        </div>
+        <div class="experience-item">
+          <h3>WordPress Developer</h3>
+          <p><strong>Company:</strong> Freelance</p>
+          <p>
+            <strong>Duration:</strong> February 2023 - March 2023 (2 months)
+          </p>
+          <p>Web developer with WordPress on the Freelance platform.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Indie Game Developer</h3>
+          <p>
+            <strong>Duration:</strong> April 2020 - April 2022 (2 years, 1
+            month)
+          </p>
+          <p>Game developer with Unity for own hypercasual games.</p>
+        </div>
+      </section>
+
       <section id="contact">
         <h2>Contact</h2>
         <p>Phone: +90 539 260 9913</p>
@@ -489,6 +551,7 @@
         // Animation for skill items
         const skillItems = document.querySelectorAll(".skill-item");
         const projectItems = document.querySelectorAll(".project-item");
+        const experienceItems = document.querySelectorAll(".experience-item");
 
         const animateItems = (items) => {
           items.forEach((item, index) => {
@@ -514,6 +577,8 @@
                 animateItems(skillItems);
               } else if (entry.target.id === "projects") {
                 animateItems(projectItems);
+              } else if (entry.target.id === "experience") {
+                animateItems(experienceItems);
               }
               observer.unobserve(entry.target);
             }
@@ -522,6 +587,7 @@
 
         observer.observe(document.getElementById("skills"));
         observer.observe(document.getElementById("projects"));
+        observer.observe(document.getElementById("experience"));
 
         // Fill skill bars
         document.querySelectorAll(".skill-bar div").forEach((bar) => {
