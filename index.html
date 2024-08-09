@@ -94,6 +94,7 @@
         list-style-type: none;
         display: flex;
         justify-content: center;
+        padding: 0;
       }
 
       nav ul li {
@@ -109,6 +110,34 @@
 
       nav ul li a:hover {
         color: var(--primary-color);
+      }
+
+      .navbar-toggle {
+        display: none;
+        cursor: pointer;
+        padding-right: 10px;
+      }
+
+      .navbar-toggle div {
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      .download-cv {
+        background-color: var(--primary-color);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .download-cv:hover {
+        background-color: var(--secondary-color);
       }
 
       section {
@@ -266,6 +295,32 @@
         .experience-item {
           flex-basis: 100%;
         }
+
+        nav ul {
+          display: none;
+          flex-direction: column;
+          text-align: center;
+          width: 100%;
+        }
+
+        .navbar-toggle {
+          display: block;
+          position: absolute;
+          right: 20px;
+          top: 20px;
+        }
+
+        nav ul.active {
+          display: flex;
+        }
+
+        nav {
+          padding: 2rem 0;
+        }
+
+        nav ul li {
+          margin: 0.5rem 0;
+        }
       }
 
       @media (max-width: 480px) {
@@ -289,12 +344,25 @@
     </header>
 
     <nav>
+      <div class="navbar-toggle">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <a
+            href="Samet_Köser_CV.pdf"
+            download="Samet_Koser_CV.pdf"
+            class="download-cv"
+            >Download My CV</a
+          >
+        </li>
       </ul>
     </nav>
 
@@ -546,6 +614,14 @@
               behavior: "smooth",
             });
           });
+        });
+
+        // Toggle navigation menu on mobile
+        const navbarToggle = document.querySelector(".navbar-toggle");
+        const navLinks = document.querySelector("nav ul");
+
+        navbarToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
         });
 
         // Animation for skill items
